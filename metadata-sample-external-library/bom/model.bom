@@ -1,0 +1,28 @@
+
+#loadGetterSetterAsProperties
+package com.ibm.ads.metadata.model;
+
+
+class DecisionMetadata
+        extends com.ibm.ia.StringProvider
+{
+    string description
+                #notVerbalized;
+    string id
+                #notVerbalized;
+    string name
+                #notVerbalized;
+    java.util.Map properties
+                #notVerbalized;
+    string version
+                #notVerbalized;
+    DecisionMetadata()
+                #notVerbalized
+                #pureFunction;
+    DecisionMetadata(string arg1, string arg2, string arg3, string arg4, java.util.Map arg5)
+                #notVerbalized;
+    string toString()
+                #notVerbalized
+                #pureFunction;
+}
+

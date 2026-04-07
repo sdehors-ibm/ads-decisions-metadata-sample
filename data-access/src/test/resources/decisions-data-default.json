@@ -1,0 +1,72 @@
+[
+  {
+    "id": "DEC-001",
+    "name": "Credit Approval Decision",
+    "description": "Determines whether a credit application should be approved based on applicant's credit score and income",
+    "version": "1.0.0",
+    "properties": {
+      "author": "John Doe",
+      "createdDate": "2024-01-15",
+      "lastModified": "2024-03-20",
+      "category": "Financial",
+      "complexity": "medium",
+      "tags": ["credit", "approval", "financial"]
+    }
+  },
+  {
+    "id": "DEC-002",
+    "name": "Loan Eligibility Decision",
+    "description": "Evaluates loan eligibility based on multiple factors including credit history, employment status, and debt-to-income ratio",
+    "version": "2.1.0",
+    "properties": {
+      "author": "Jane Smith",
+      "createdDate": "2023-11-10",
+      "lastModified": "2024-02-28",
+      "category": "Financial",
+      "complexity": "high",
+      "tags": ["loan", "eligibility", "financial"]
+    }
+  },
+  {
+    "id": "DEC-003",
+    "name": "Insurance Premium Calculation",
+    "description": "Calculates insurance premium based on risk factors and coverage amount",
+    "version": "1.5.0",
+    "properties": {
+      "author": "Bob Johnson",
+      "createdDate": "2024-02-01",
+      "lastModified": "2024-03-15",
+      "category": "Insurance",
+      "complexity": "medium",
+      "tags": ["insurance", "premium", "calculation"]
+    }
+  },
+  {
+    "id": "DEC-004",
+    "name": "Fraud Detection Decision",
+    "description": "Identifies potentially fraudulent transactions based on transaction patterns and user behavior",
+    "version": "3.0.0",
+    "properties": {
+      "author": "Alice Williams",
+      "createdDate": "2023-09-20",
+      "lastModified": "2024-03-25",
+      "category": "Security",
+      "complexity": "high",
+      "tags": ["fraud", "detection", "security"]
+    }
+  },
+  {
+    "id": "DEC-005",
+    "name": "Customer Discount Eligibility",
+    "description": "Determines customer eligibility for various discount programs",
+    "version": "1.2.0",
+    "properties": {
+      "author": "Charlie Brown",
+      "createdDate": "2023-06-15",
+      "lastModified": "2023-12-10",
+      "category": "Marketing",
+      "complexity": "low",
+      "tags": ["discount", "customer", "marketing"]
+    }
+  }
+]

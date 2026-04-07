@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+    <artifactId>ads-decisions-metadata-sample</artifactId>
+    <groupId>com.ibm.ads</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+    <groupId>com.ibm.ads</groupId>
+    <artifactId>metadata-sample-external-library</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>External Library template</name>
+    <description>External Library template</description>
+    <properties>
+        <ads-mojo.version>16.1.0</ads-mojo.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.ibm.decision</groupId>
+                    <artifactId>build-maven-plugin</artifactId>
+                    <version>${ads-mojo.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>com.ibm.decision</groupId>
+                <artifactId>build-maven-plugin</artifactId>
+                <version>${ads-mojo.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>export</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <deployments>
+                        <deployment>
+                            <name>${project.artifactId}</name>
+                        </deployment>
+                    </deployments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.ibm.decision</groupId>
+                <artifactId>import-maven-plugin</artifactId>
+                <version>${ads-mojo.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-external-annotations-BOM-Voc</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <skip>false</skip>
+                            <locales>
+                                <locale>en_US</locale>
+                            </locales>
+                            <importMethods>true</importMethods>
+                            <referenceFolder>reference</referenceFolder>
+                        </configuration>
+                        <goals>
+                            <goal>import</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ibm.ads.samples.metadata</groupId>
+            <artifactId>data-access</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

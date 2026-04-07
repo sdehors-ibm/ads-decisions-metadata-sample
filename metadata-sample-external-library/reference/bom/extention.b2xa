@@ -1,0 +1,27 @@
+<b2x:translation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:schemaLocation="http://schemas.ilog.com/JRules/1.2/Translation ilog/rules/schemas/1_2/b2x.xsd"
+                 xmlns:b2x="http://schemas.ilog.com/JRules/1.2/Translation">
+    <class>
+        <businessName>utility.MetatadaRepository</businessName>
+        <executionName>void</executionName>
+        <method>
+            <name>init</name>
+            <body language="arl"><![CDATA[
+                  com.fasterxml.jackson.databind.JsonNode metadata = (com.fasterxml.jackson.databind.JsonNode)runContext.getMetadata().get("deploymentTime");
+                  java.lang.String deployTime = metadata != null ? metadata.textValue() : null;
+                  note("decision service deployed at :" + deployTime);
+                  DecisionRepository.getInstance().setDeployTime(deployTime);
+
+
+                  ]]></body>
+        </method>
+         <method>
+            <name>getDecisionMetadata</name>
+            <body language="arl"><![CDATA[
+                  retrun new com.ibm.ads.metadata.model.Decision();
+
+
+                  ]]></body>
+        </method>
+    </class>
+</b2x:translation>

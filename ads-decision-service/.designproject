@@ -1,0 +1,11 @@
+{
+  "description" : "",
+  "groupId" : "com.ibm.ads.samples.metadata",
+  "locale" : "en_US",
+  "properties" : {
+    "refactoringEnabled" : false,
+    "indexingEnabled" : false,
+    "tags" : [ ]
+  },
+  "extraProperties" : { }
+}

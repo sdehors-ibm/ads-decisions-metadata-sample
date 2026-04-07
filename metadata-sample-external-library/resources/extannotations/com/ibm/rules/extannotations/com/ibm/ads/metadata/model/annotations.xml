@@ -1,0 +1,23 @@
+<root>
+  <item name="com.ibm.ads.metadata.model.DecisionMetadata DecisionMetadata()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+  <item name="com.ibm.ads.metadata.model.DecisionMetadata java.lang.String getDescription()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+  <item name="com.ibm.ads.metadata.model.DecisionMetadata java.lang.String getId()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+  <item name="com.ibm.ads.metadata.model.DecisionMetadata java.lang.String getName()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+  <item name="com.ibm.ads.metadata.model.DecisionMetadata java.lang.String getVersion()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+  <item name="com.ibm.ads.metadata.model.DecisionMetadata java.lang.String toString()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+  <item name="com.ibm.ads.metadata.model.DecisionMetadata java.util.Map getProperties()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+</root>
