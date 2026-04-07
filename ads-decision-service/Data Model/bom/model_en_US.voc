@@ -1,0 +1,9 @@
+
+# com.ibm.ads.samples.metadata.datamodel.Output
+com.ibm.ads.samples.metadata.datamodel.Output#concept.label = output
+com.ibm.ads.samples.metadata.datamodel.Output.Output(com.ibm.ads.metadata.model.DecisionMetadata,java.lang.String)#phrase.navigation = a new {output} where {0, metadata} {1, result}
+com.ibm.ads.samples.metadata.datamodel.Output.metadata#phrase.action = set the metadata of {this} to {metadata}
+com.ibm.ads.samples.metadata.datamodel.Output.metadata#phrase.clearer = clear the metadata of {this}
+com.ibm.ads.samples.metadata.datamodel.Output.metadata#phrase.navigation = {metadata} of {this}
+com.ibm.ads.samples.metadata.datamodel.Output.result#phrase.action = set the result of {this} to {result}
+com.ibm.ads.samples.metadata.datamodel.Output.result#phrase.navigation = {result} of {this}

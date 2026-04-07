@@ -3,14 +3,19 @@
 
     <parent>
         <groupId>com.ibm.ads.samples.metadata</groupId>
-        <artifactId>metadata-decision-service-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <artifactId>ads-Decision-Service</artifactId>
+        <version>LATEST-SNAPSHOT</version>
     </parent>
 
-    <artifactId>metadata-sample-DecisionService</artifactId>
+    <artifactId>ads-Decision-ServiceDecisionService</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>com.ibm.ads.samples.metadata</groupId>
+            <artifactId>dataModel</artifactId>
+            <version>LATEST-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>com.ibm.ads.samples.metadata</groupId>
             <artifactId>greetings</artifactId>
@@ -70,6 +75,9 @@
         </profile>
     </profiles>
 
+
+
+
 <build>
         <resources>
             <resource>
@@ -94,6 +102,15 @@
                         </goals>
                         <configuration>
                             <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.ibm.ads.samples.metadata</groupId>
+                                    <artifactId>dataModel</artifactId>
+                                    <version>LATEST-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <includes>**/*.class</includes>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
                                 <artifactItem>
                                     <groupId>com.ibm.ads.samples.metadata</groupId>
                                     <artifactId>greetings</artifactId>

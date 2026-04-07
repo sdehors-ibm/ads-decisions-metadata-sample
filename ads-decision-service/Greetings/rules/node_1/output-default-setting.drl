@@ -3,5 +3,5 @@
   <name>output-default-setting</name>
   <uuid>bf80259c-b18e-457f-853b-8b6e1cdf099f</uuid>
   <locale>en_US</locale>
-  <definition><![CDATA[set decision to "not ok" ;]]></definition>
+  <definition><![CDATA[set the metadata of decision to the metadata of this decision ;]]></definition>
 </ilog.rules.studio.model.brl:ActionRule>

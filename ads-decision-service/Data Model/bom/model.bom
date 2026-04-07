@@ -1,0 +1,26 @@
+
+package com.ibm.ads.samples.metadata.datamodel;
+
+
+class Output
+        property ads.typeId "1"
+        property com.fasterxml.jackson.annotation.JsonTypeName "output"
+        #de.generated
+{
+    com.ibm.ads.metadata.model.DecisionMetadata metadata
+                property ads.attributeId "2"
+                property com.fasterxml.jackson.annotation.JsonProperty "metadata"
+                #update;
+    string result
+                property ads.attributeId "1"
+                property com.fasterxml.jackson.annotation.JsonProperty "result"
+                #update;
+    Output(com.ibm.ads.metadata.model.DecisionMetadata metadata, string result)
+                #autoExpand
+                #beanConstructor
+                property groups "BALA"
+                #prototype;
+    Output()
+                #dataio.default;
+}
+

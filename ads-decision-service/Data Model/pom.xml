@@ -8,8 +8,8 @@
     </parent>
 
     <groupId>com.ibm.ads.samples.metadata</groupId>
-    <artifactId>greetings</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>dataModel</artifactId>
+    <version>LATEST-SNAPSHOT</version>
 
     <build>
         <plugins>
@@ -26,10 +26,10 @@
                 <configuration>
                     <deployments>
                         <deployment>
-                            <name>Greetings</name>
+                            <name>Data_Model</name>
                         </deployment>
                     </deployments>
-                <packageName>com.ibm.ads.samples.metadata.greetings</packageName>
+                <packageName>com.ibm.ads.samples.metadata.datamodel</packageName>
                 </configuration>
             </plugin>
         </plugins>
@@ -37,9 +37,9 @@
 
 <dependencies>
         <dependency>
-            <groupId>com.ibm.ads.samples.metadata</groupId>
-            <artifactId>dataModel</artifactId>
-            <version>LATEST-SNAPSHOT</version>
+            <groupId>com.ibm.ads</groupId>
+            <artifactId>metadata-sample-external-library</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.ibm.decision</groupId>

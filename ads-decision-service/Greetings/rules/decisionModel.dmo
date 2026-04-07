@@ -19,12 +19,12 @@
         <extensionElements>
             <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
                 <input bomType="java.lang.Boolean" collection="false" name="Input"/>
-                <output bomType="java.lang.String" collection="false" name="Decision"/>
+                <output bomType="com.ibm.ads.samples.metadata.datamodel.Output" collection="false" name="Decision"/>
                 <rule defaultRule="false" href="node_1/greeting%20rule.drl" kind="BusinessRule" name="greeting rule"/>
                 <rule defaultRule="true" href="node_1/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
             </ruleset>
         </extensionElements>
-        <variable id="node_1_ii" name="Decision" typeRef="java.lang.String"/>
+        <variable id="node_1_ii" name="Decision" typeRef="com.ibm.ads.samples.metadata.datamodel.Output"/>
         <informationRequirement>
             <requiredInput href="#node_0"/>
         </informationRequirement>
