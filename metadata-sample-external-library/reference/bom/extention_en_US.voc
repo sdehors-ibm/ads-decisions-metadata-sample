@@ -1,4 +1,0 @@
-# utility.MetatadaRepository
-utility.MetatadaRepository#concept.label =
-utility.MetatadaRepository.init()#phrase.action = initialize service URL
-utility.MetatadaRepository.getDecisionMetadata()#phrase.action = the current decision metadata

@@ -1,6 +1,0 @@
-class utility.MetatadaRepository
-{
-    static void init();
-
-    static DecisionMetadata getDecisionMetadata();
-}
