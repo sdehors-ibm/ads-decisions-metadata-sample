@@ -26,3 +26,11 @@ class DecisionMetadata
                 #pureFunction;
 }
 
+package utility;
+
+
+class MetadataRepository
+{
+    static com.ibm.ads.metadata.model.DecisionMetadata getDecisionMetadata();
+}
+

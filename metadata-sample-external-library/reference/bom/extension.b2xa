@@ -1,11 +1,14 @@
-<b2x:translation xmlns:b2x="http://schemas.ilog.com/JRules/1.3/Translation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.ilog.com/JRules/1.3/Translation ilog/rules/schemas/1_3/b2x.xsd">
+<b2x:translation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:schemaLocation="http://schemas.ilog.com/JRules/1.2/Translation ilog/rules/schemas/1_2/b2x.xsd"
+                 xmlns:b2x="http://schemas.ilog.com/JRules/1.2/Translation">
+    
     <class>
         <businessName>utility.MetadataRepository</businessName>
-        <executionName>void</executionName>
+        <executionName>void</executionName>  
         <method>
             <name>getDecisionMetadata</name>
             <body language="arl"><![CDATA[
-            // access the current rule being executed
+                // access the current rule being executed
                 java.lang.String ruleName =com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getName();
 
                 // find corresponding prepackaged metadata for this rule
@@ -18,7 +21,8 @@
                 data.getProperties().put("deployTime", deployTime);
 
                 return data;
-            ]]></body>
+              ]]></body>
         </method>
+
     </class>
 </b2x:translation>

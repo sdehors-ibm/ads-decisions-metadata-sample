@@ -1,3 +1,7 @@
 
 # com.ibm.ads.metadata.model.DecisionMetadata
 com.ibm.ads.metadata.model.DecisionMetadata#concept.label = decision metadata
+
+# utility.MetadataRepository
+utility.MetadataRepository#concept.label = 
+utility.MetadataRepository.getDecisionMetadata()#phrase.navigation = the metadata of this decision

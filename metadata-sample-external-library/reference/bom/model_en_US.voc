@@ -1,0 +1,3 @@
+# utility.MetadataRepository
+utility.MetadataRepository#concept.label = 
+utility.MetadataRepository.getDecisionMetadata()#phrase.navigation = the metadata of this decision

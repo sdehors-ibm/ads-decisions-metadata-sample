@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.ibm.ads.samples.metadata</groupId>
         <artifactId>ads-Decision-Service</artifactId>
-        <version>LATEST-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>ads-Decision-ServiceDecisionService</artifactId>
@@ -14,7 +14,7 @@
         <dependency>
             <groupId>com.ibm.ads.samples.metadata</groupId>
             <artifactId>dataModel</artifactId>
-            <version>LATEST-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.ibm.ads.samples.metadata</groupId>
@@ -85,6 +85,7 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>META-INF/decisionServiceArchive.json</include>
+                    <include>decisions-data.json</include>
                 </includes>
             </resource>
         </resources>
@@ -105,7 +106,7 @@
                                 <artifactItem>
                                     <groupId>com.ibm.ads.samples.metadata</groupId>
                                     <artifactId>dataModel</artifactId>
-                                    <version>LATEST-SNAPSHOT</version>
+                                    <version>1.0.0-SNAPSHOT</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
                                     <includes>**/*.class</includes>
