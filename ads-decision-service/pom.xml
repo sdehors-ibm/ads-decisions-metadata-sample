@@ -18,7 +18,7 @@
     <properties>
         <ads-mojo.version>16.1.0</ads-mojo.version>
         <buildTime>${maven.build.timestamp}</buildTime>
-        <decision-ml-predictor.version>2.1.1</decision-ml-predictor.version>
+        <decision-ml-predictor.version>2.1.0.1</decision-ml-predictor.version>
         <decisionServiceId>${project.groupId}:${project.artifactId}</decisionServiceId>
         <engine-api.version>3.8.0</engine-api.version>
         <engine-compact-runtime.version>3.8.0</engine-compact-runtime.version>
@@ -73,7 +73,6 @@
         <module>.decisionservice</module>
         <module>Data Model</module>
         <module>Greetings</module>
-        <module>task</module>
     </modules>
 
     <build>
