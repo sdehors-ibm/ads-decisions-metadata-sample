@@ -9,14 +9,19 @@
             <name>getDecisionMetadata</name>
             <body language="arl"><![CDATA[
                 // access the current rule being executed
-                java.lang.String ruleName =com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getName();
+                // java.lang.String ruleName=com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getName();
 
                 // find corresponding prepackaged metadata for this rule
-                com.ibm.ads.metadata.model.DecisionMetadata data = com.ibm.ads.metadata.repository.DecisionRepository.getInstance().getDecisionById("ruleName");
+                com.ibm.ads.metadata.model.DecisionMetadata data=com.ibm.ads.metadata.repository.DecisionRepository.getInstance().getDecisionById(ruleName);
+
+                // when running in the designer no metadata is available
+                if (data == null) {
+                    data = new com.ibm.ads.metadata.model.DecisionMetadata("N/A", "N/A", "N/A", "N/A", new java.util.HashMap());
+                }
 
                 // access metadata set at deploy time
-                com.fasterxml.jackson.databind.JsonNode runtimeMetadata = (com.fasterxml.jackson.databind.JsonNode)runContext.getMetadata().get("deploymentTime");
-                java.lang.String deployTime = runtimeMetadata != null ? runtimeMetadata.textValue() : null;
+                com.fasterxml.jackson.databind.JsonNode runtimeMetadata=(com.fasterxml.jackson.databind.JsonNode)runContext.getMetadata().get("deploymentTime");
+                java.lang.String deployTime=runtimeMetadata != null ? runtimeMetadata.textValue() : null;
                 note("decision service deployed at :" + deployTime);
                 data.getProperties().put("deployTime", deployTime);
 
