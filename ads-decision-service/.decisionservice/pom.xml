@@ -94,6 +94,82 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-decisions-metadata</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>bash</executable>
+                            <arguments>
+                                <argument>-c</argument>
+                                <argument>
+                                    <![CDATA[
+# Create output directory
+mkdir -p "${project.build.directory}/classes"
+
+# Get git tag for version
+GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "1.0.0")
+
+# Output file
+OUTPUT_FILE="${project.build.directory}/classes/decisions-data.json"
+
+# Start JSON array
+echo "[" > "$OUTPUT_FILE"
+
+# Find all .drl files in sibling modules (excluding .decisionservice) and store in array
+mapfile -t drl_files < <(find "${project.basedir}/.." -name "*.drl" -type f ! -path "*/.decisionservice/*" | sort)
+
+# Process each file
+for i in "${!drl_files[@]}"; do
+    drl_file="${drl_files[$i]}"
+    
+    # Extract rule name from XML content
+    RULE_NAME=$(grep -oP '(?<=<name>)[^<]+' "$drl_file" 2>/dev/null || basename "$drl_file" .drl)
+    
+    # Get git metadata for the file
+    GIT_AUTHOR=$(git log -1 --format="%an" -- "$drl_file" 2>/dev/null || echo "Unknown")
+    GIT_CREATED=$(git log --diff-filter=A --format="%ai" -- "$drl_file" 2>/dev/null | tail -1 | sed 's/ /T/' | cut -d' ' -f1 || date +%Y-%m-%dT%H:%M:%S)
+    GIT_MODIFIED=$(git log -1 --format="%ai" -- "$drl_file" 2>/dev/null | sed 's/ /T/' | cut -d' ' -f1 || date +%Y-%m-%dT%H:%M:%S)
+    
+    # Determine if we need a comma after this entry
+    COMMA=""
+    if [ $i -lt $((${#drl_files[@]} - 1)) ]; then
+        COMMA=","
+    fi
+    
+    # Generate JSON entry
+    cat >> "$OUTPUT_FILE" << EOF
+  {
+    "id": "$RULE_NAME",
+    "name": "$RULE_NAME",
+    "description": "...",
+    "version": "$GIT_TAG",
+    "properties": {
+      "author": "$GIT_AUTHOR",
+      "createdDate": "$GIT_CREATED",
+      "lastModified": "$GIT_MODIFIED"
+    }
+  }$COMMA
+EOF
+done
+
+# Close JSON array
+echo "]" >> "$OUTPUT_FILE"
+                                    ]]>
+                                </argument>
+                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>${maven-dependency-plugin.version}</version>
