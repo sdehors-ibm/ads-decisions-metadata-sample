@@ -9,7 +9,7 @@
 
     <groupId>com.ibm.ads.samples.metadata</groupId>
     <artifactId>ads-Decision-Service</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>LATEST-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ads-decision-service</name>
@@ -73,6 +73,7 @@
         <module>.decisionservice</module>
         <module>Data Model</module>
         <module>Greetings</module>
+        <module>task</module>
     </modules>
 
     <build>

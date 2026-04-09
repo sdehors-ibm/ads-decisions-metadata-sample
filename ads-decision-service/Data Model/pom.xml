@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.ibm.ads.samples.metadata</groupId>
         <artifactId>ads-Decision-Service</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>LATEST-SNAPSHOT</version>
     </parent>
 
     <groupId>com.ibm.ads.samples.metadata</groupId>
