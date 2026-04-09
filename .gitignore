@@ -9,7 +9,8 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
-repository
+/repository
+/ads-decision-service/repository
 
 # Java
 *.class

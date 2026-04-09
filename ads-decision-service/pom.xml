@@ -131,43 +131,105 @@
                                 <argument>-c</argument>
                                 <argument>
                                     <![CDATA[
+# Check if this is the parent module (ads-decision-service)
+MODULE_NAME=$(basename "${project.basedir}")
+
+# Skip execution in the parent module
+if [ "$MODULE_NAME" = "ads-decision-service" ]; then
+    echo "Skipping metadata generation in parent module"
+    exit 0
+fi
+
 # Create output directory
 mkdir -p "${project.build.directory}/classes/metadata"
 
-# Get git tag for version
-GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "1.0.0")
-
-# Output file
-OUTPUT_FILE="${project.build.directory}/classes/metadata/${project.artifactId}.json"
-
-# Start JSON array
-echo "[" > "$OUTPUT_FILE"
-
-# Find all .drl files in the module and store in array
-mapfile -t drl_files < <(find "${project.basedir}" -name "*.drl" -type f | sort)
-
-# Process each file
-for i in "${!drl_files[@]}"; do
-    drl_file="${drl_files[$i]}"
+# Check if this is the .decisionservice module
+if [ "$MODULE_NAME" = ".decisionservice" ]; then
+    # Special behavior for .decisionservice module: copy metadata from sibling modules
+    echo "Running in .decisionservice module - copying metadata from siblings"
     
-    # Extract rule name from XML content
-    RULE_NAME=$(grep -oP '(?<=<name>)[^<]+' "$drl_file" 2>/dev/null || basename "$drl_file" .drl)
+    # Get the parent directory (one level up from .decisionservice)
+    PARENT_DIR="${project.basedir}/.."
     
-    # Get git metadata for the file
-    GIT_AUTHOR=$(git log -1 --format="%an" -- "$drl_file" 2>/dev/null || echo "Unknown")
-    GIT_CREATED=$(git log --diff-filter=A --format="%ai" -- "$drl_file" 2>/dev/null | tail -1 | sed 's/ /T/' | cut -d' ' -f1 || date +%Y-%m-%dT%H:%M:%S)
-    GIT_MODIFIED=$(git log -1 --format="%ai" -- "$drl_file" 2>/dev/null | sed 's/ /T/' | cut -d' ' -f1 || date +%Y-%m-%dT%H:%M:%S)
+    # Find all sibling modules (directories at the same level as .decisionservice)
+    for sibling_dir in "$PARENT_DIR"/*; do
+        # Skip if not a directory or if it's the .decisionservice directory itself
+        if [ ! -d "$sibling_dir" ] || [ "$(basename "$sibling_dir")" = ".decisionservice" ]; then
+            continue
+        fi
+        
+        # Check if the sibling has a metadata folder in target/classes
+        METADATA_DIR="$sibling_dir/target/classes/metadata"
+        if [ -d "$METADATA_DIR" ]; then
+            # Copy all JSON files from the sibling's metadata folder
+            for json_file in "$METADATA_DIR"/*.json; do
+                if [ -f "$json_file" ]; then
+                    echo "Copying metadata from $(basename "$sibling_dir"): $(basename "$json_file")"
+                    cp "$json_file" "${project.build.directory}/classes/metadata/"
+                fi
+            done
+        fi
+    done
     
-    # Determine if we need a comma after this entry
-    COMMA=""
-    if [ $i -lt $((${#drl_files[@]} - 1)) ]; then
-        COMMA=","
-    fi
+    echo "Metadata copy complete"
+else
+    # Default behavior for other modules: generate metadata from .drl files
+    echo "Generating metadata for module: $MODULE_NAME"
     
-    # Generate JSON entry
-    cat >> "$OUTPUT_FILE" << EOF
+    # Get git tag for version
+    GIT_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "1.0.0")
+    
+    # Output file
+    OUTPUT_FILE="${project.build.directory}/classes/metadata/${project.artifactId}.json"
+    
+    # Find the .dmo file to extract decision node names
+    DMO_FILE=$(find "${project.basedir}" -name "*.dmo" -type f | head -1)
+    
+    # Start JSON array
+    echo "[" > "$OUTPUT_FILE"
+    
+    # Find all .drl files in the module and store in array
+    mapfile -t drl_files < <(find "${project.basedir}" -name "*.drl" -type f | sort)
+    
+    # Process each file
+    for i in "${!drl_files[@]}"; do
+        drl_file="${drl_files[$i]}"
+        
+        # Extract rule name from file name (without extension)
+        RULE_NAME=$(basename "$drl_file" .drl)
+        
+        # Get the parent folder name (e.g., node_1)
+        PARENT_FOLDER=$(basename "$(dirname "$drl_file")")
+        
+        # Extract decision node name from .dmo file for this folder
+        DECISION_NODE_NAME=""
+        if [ -f "$DMO_FILE" ]; then
+            # Look for the decision node with id matching the parent folder
+            DECISION_NODE_NAME=$(grep -oP "(?<=<decision id=\"$PARENT_FOLDER\" name=\")[^\"]+(?=\")" "$DMO_FILE" 2>/dev/null || echo "")
+        fi
+        
+        # Create the ID by concatenating decision node name and rule name
+        if [ -n "$DECISION_NODE_NAME" ]; then
+            RULE_ID="${DECISION_NODE_NAME}/${RULE_NAME}"
+        else
+            RULE_ID="$RULE_NAME"
+        fi
+        
+        # Get git metadata for the file
+        GIT_AUTHOR=$(git log -1 --format="%an" -- "$drl_file" 2>/dev/null || echo "Unknown")
+        GIT_CREATED=$(git log --diff-filter=A --format="%ai" -- "$drl_file" 2>/dev/null | tail -1 | sed 's/ /T/' | cut -d' ' -f1 || date +%Y-%m-%dT%H:%M:%S)
+        GIT_MODIFIED=$(git log -1 --format="%ai" -- "$drl_file" 2>/dev/null | sed 's/ /T/' | cut -d' ' -f1 || date +%Y-%m-%dT%H:%M:%S)
+        
+        # Determine if we need a comma after this entry
+        COMMA=""
+        if [ $i -lt $((${#drl_files[@]} - 1)) ]; then
+            COMMA=","
+        fi
+        
+        # Generate JSON entry
+        cat >> "$OUTPUT_FILE" << EOF
   {
-    "id": "$RULE_NAME",
+    "id": "$RULE_ID",
     "name": "$RULE_NAME",
     "description": "...",
     "version": "$GIT_TAG",
@@ -178,10 +240,11 @@ for i in "${!drl_files[@]}"; do
     }
   }$COMMA
 EOF
-done
-
-# Close JSON array
-echo "]" >> "$OUTPUT_FILE"
+    done
+    
+    # Close JSON array
+    echo "]" >> "$OUTPUT_FILE"
+fi
                                     ]]>
                                 </argument>
                             </arguments>

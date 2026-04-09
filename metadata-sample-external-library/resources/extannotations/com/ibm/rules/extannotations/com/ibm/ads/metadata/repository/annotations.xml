@@ -1,0 +1,8 @@
+<root>
+  <item name="com.ibm.ads.metadata.repository.DecisionRepository com.ibm.ads.metadata.repository.DecisionRepository getInstance()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+  <item name="com.ibm.ads.metadata.repository.DecisionRepository$DecisionRepositoryHolder DecisionRepository$DecisionRepositoryHolder()">
+    <annotation name="com.ibm.rules.engine.annotations.PureFunction"/>
+  </item>
+</root>

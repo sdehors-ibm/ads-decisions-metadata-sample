@@ -1,0 +1,12 @@
+[
+  {
+    "id": "TEST-003",
+    "name": "Test Decision 3",
+    "description": "Third test decision from another metadata file",
+    "version": "2.0.0",
+    "properties": {
+      "author": "Another Author",
+      "category": "Testing"
+    }
+  }
+]

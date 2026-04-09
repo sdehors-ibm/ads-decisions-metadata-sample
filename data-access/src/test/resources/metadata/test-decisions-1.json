@@ -1,0 +1,22 @@
+[
+  {
+    "id": "TEST-001",
+    "name": "Test Decision 1",
+    "description": "First test decision from metadata folder",
+    "version": "1.0.0",
+    "properties": {
+      "author": "Test Author",
+      "category": "Testing"
+    }
+  },
+  {
+    "id": "TEST-002",
+    "name": "Test Decision 2",
+    "description": "Second test decision from metadata folder",
+    "version": "1.0.0",
+    "properties": {
+      "author": "Test Author",
+      "category": "Testing"
+    }
+  }
+]
