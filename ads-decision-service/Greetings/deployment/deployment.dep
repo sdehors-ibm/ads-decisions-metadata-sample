@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<com.ibm.rules.studio.model.decisionservice:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" ruleAppName="com.ibm.ads.samples.metadata:greetings" ruleAppVersion="1.0.0-SNAPSHOT" packageName="com.ibm.ads.samples.metadata.greetings" managingXom="true">
+<com.ibm.rules.studio.model.decisionservice:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" ruleAppName="com.ibm.ads.samples.metadata:greetings" ruleAppVersion="LATEST-SNAPSHOT" packageName="com.ibm.ads.samples.metadata.greetings" managingXom="true">
   <name>Greetings</name>
   <uuid>0bcf48de-47ad-4c49-9fc6-f58187748abc</uuid>
   <locales>en_US</locales>

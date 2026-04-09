@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-    <artifactId>ads-decisions-metadata-sample</artifactId>
-    <groupId>com.ibm.ads</groupId>
-    <version>1.0.0-SNAPSHOT</version>
-  </parent>
 
     <groupId>com.ibm.ads</groupId>
     <artifactId>metadata-sample-external-library</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>LATEST-SNAPSHOT</version>
 
     <name>External Library template</name>
     <description>External Library template</description>
+    
     <properties>
-        <ads-mojo.version>16.1.0</ads-mojo.version>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ads-mojo.version>16.1.0</ads-mojo.version>
     </properties>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -77,7 +73,7 @@
         <dependency>
             <groupId>com.ibm.ads.samples.metadata</groupId>
             <artifactId>data-access</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>LATEST-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

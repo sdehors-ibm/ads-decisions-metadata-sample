@@ -9,7 +9,7 @@
   </paths>
   <paths xsi:type="ilog.rules.studio.model.bom:BOMPath" pathID="BOM">
     <entries xsi:type="ilog.rules.studio.model.bom:BOMEntry" name="model" url="platform:/Data Model/bom/model.bom"/>
-    <entries xsi:type="ilog.rules.studio.model.bom:DecisionLibraryBOMEntry" name="com.ibm.ads:metadata-sample-external-library#1.0.0-SNAPSHOT" packageId="com.ibm.ads:metadata-sample-external-library" version="1.0.0-SNAPSHOT"/>
+    <entries xsi:type="ilog.rules.studio.model.bom:DecisionLibraryBOMEntry" name="com.ibm.ads:metadata-sample-external-library#LATEST-SNAPSHOT" packageId="com.ibm.ads:metadata-sample-external-library" version="LATEST-SNAPSHOT"/>
   </paths>
   <modelFolders xsi:type="ilog.rules.studio.model.base:BMDFolder">
     <name>bmd</name>

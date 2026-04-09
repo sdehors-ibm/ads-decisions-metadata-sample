@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<com.ibm.rules.studio.model.decisionservice:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" ruleAppName="com.ibm.ads.samples.metadata:dataModel" ruleAppVersion="1.0.0-SNAPSHOT" packageName="com.ibm.ads.samples.metadata.datamodel" managingXom="true">
+<com.ibm.rules.studio.model.decisionservice:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" ruleAppName="com.ibm.ads.samples.metadata:dataModel" ruleAppVersion="LATEST-SNAPSHOT" packageName="com.ibm.ads.samples.metadata.datamodel" managingXom="true">
   <name>Data_Model</name>
   <uuid>59e07de4-92ac-4013-a0cb-66a682b587ac</uuid>
   <locales>en_US</locales>

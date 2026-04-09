@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<com.ibm.rules.studio.model.decisionservice:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" ruleAppName="com.ibm.ads:metadata-sample-external-library" ruleAppVersion="1.0.0-SNAPSHOT" managingXom="true">
+<com.ibm.rules.studio.model.decisionservice:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" ruleAppName="com.ibm.ads:metadata-sample-external-library" ruleAppVersion="LATEST-SNAPSHOT" managingXom="true">
   <name>metadata-sample-external-library</name>
   <uuid>a08999af-de45-42aa-9018-74ac82bc3fc1</uuid>
   <locales>en_US</locales>

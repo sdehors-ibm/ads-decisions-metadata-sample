@@ -14,12 +14,12 @@
         <dependency>
             <groupId>com.ibm.ads.samples.metadata</groupId>
             <artifactId>dataModel</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>LATEST-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.ibm.ads.samples.metadata</groupId>
             <artifactId>greetings</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>LATEST-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.ibm.decision</groupId>
@@ -107,7 +107,7 @@
                                 <artifactItem>
                                     <groupId>com.ibm.ads.samples.metadata</groupId>
                                     <artifactId>dataModel</artifactId>
-                                    <version>1.0.0-SNAPSHOT</version>
+                                    <version>LATEST-SNAPSHOT</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
                                     <includes>**/*.class</includes>
@@ -116,7 +116,7 @@
                                 <artifactItem>
                                     <groupId>com.ibm.ads.samples.metadata</groupId>
                                     <artifactId>greetings</artifactId>
-                                    <version>1.0.0-SNAPSHOT</version>
+                                    <version>LATEST-SNAPSHOT</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
                                     <includes>**/*.class</includes>
