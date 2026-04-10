@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
-  <name>output-default-setting</name>
-  <uuid>bf80259c-b18e-457f-853b-8b6e1cdf099f</uuid>
+  <name>default metadata</name>
+  <uuid>886887b3-3b69-4f52-9e3c-c40ad94f1c01</uuid>
   <locale>en_US</locale>
   <definition><![CDATA[set the metadata of decision to the metadata of this decision ;]]></definition>
 </ilog.rules.studio.model.brl:ActionRule>

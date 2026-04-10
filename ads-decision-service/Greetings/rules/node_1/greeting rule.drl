@@ -7,6 +7,6 @@
 	Input is true
 then
 	set the result of decision to "Ok" ;
-    set the metadata of decision to the metadata of this decision ;
+    
     ]]></definition>
 </ilog.rules.studio.model.brl:ActionRule>
