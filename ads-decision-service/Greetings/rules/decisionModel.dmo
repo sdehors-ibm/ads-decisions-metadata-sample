@@ -20,8 +20,8 @@
             <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
                 <input bomType="java.lang.Boolean" collection="false" name="Input"/>
                 <output bomType="com.ibm.ads.samples.metadata.datamodel.Output" collection="false" name="Decision"/>
-                <rule defaultRule="false" href="node_1/default%20metadata.drl" kind="BusinessRule" name="default metadata"/>
-                <rule defaultRule="false" href="node_1/greeting%20rule.drl" kind="BusinessRule" name="greeting rule"/>
+                <rule defaultRule="false" href="node_1/ok%20rule.drl" kind="BusinessRule" name="ok rule"/>
+                <rule defaultRule="false" href="node_1/ko%20rule.drl" kind="BusinessRule" name="ko rule"/>
             </ruleset>
         </extensionElements>
         <variable id="node_1_ii" name="Decision" typeRef="com.ibm.ads.samples.metadata.datamodel.Output"/>

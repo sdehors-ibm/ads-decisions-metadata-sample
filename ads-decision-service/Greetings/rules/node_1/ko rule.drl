@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
-  <name>greeting rule</name>
-  <uuid>3e09964f-af7c-4295-861b-253c568f1ea5</uuid>
+  <name>ko rule</name>
+  <uuid>395dc1ca-ed32-4bc8-a474-dd6f4e7e7417</uuid>
   <locale>en_US</locale>
   <definition><![CDATA[if
-	Input is true
+	Input is false 	
 then
-	set the result of decision to "Ok" ;
-    
-    ]]></definition>
+	set the result of decision to "KO" ;
+    set the metadata of decision to the metadata of this decision ;]]></definition>
 </ilog.rules.studio.model.brl:ActionRule>
