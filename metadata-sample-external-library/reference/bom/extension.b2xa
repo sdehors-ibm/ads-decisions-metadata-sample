@@ -8,17 +8,16 @@
         <method>
             <name>getDecisionMetadata</name>
             <body language="arl"><![CDATA[
-                com.ibm.ads.metadata.model.DecisionMetadata data;
-                if (com.ibm.rules.engine.ruledef.runtime.RuleInstance.this != null) {
-                    // access the current rule being executed
-                    // com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getName();
-                    java.lang.String name=com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getProperties().get("ilog.rules.business_name") + "/" + com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getProperties().get("ilog.rules.package_name");
+                
+                // access the current rule being executed
+                java.lang.String id=com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getProperties().get("ilog.rules.package_name") + "/" + com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getProperties().get("ilog.rules.business_name");
                     
-                    //note(com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getProperties().get("ilog.rules.dt")+"");
+                // for decision tables
+                //note(com.ibm.rules.engine.ruledef.runtime.RuleInstance.this.getRule().getProperties().get("ilog.rules.dt")+"");
   
-                    // find corresponding prepackaged metadata for this rule
-                    data=com.ibm.ads.metadata.repository.DecisionRepository.getInstance().getDecisionById(name);
-                }
+                // find corresponding prepackaged metadata for this rule
+                com.ibm.ads.metadata.model.DecisionMetadata data=com.ibm.ads.metadata.repository.DecisionRepository.getInstance().getDecisionById(id);
+                note("found data:" + data + " for id "+id);
 
                 // when running in the designer no metadata is available
                 if (data == null) {

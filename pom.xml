@@ -11,8 +11,8 @@
     
     <modules>
         <module>data-access</module>
-        <module>ads-decision-service</module>
         <module>metadata-sample-external-library</module>
+        <module>ads-decision-service</module>
     </modules>
 
 </project>

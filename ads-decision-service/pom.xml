@@ -205,7 +205,9 @@ else
         DECISION_NODE_NAME=""
         if [ -f "$DMO_FILE" ]; then
             # Look for the decision node with id matching the parent folder
-            DECISION_NODE_NAME=$(grep -oP "(?<=<decision id=\"$PARENT_FOLDER\" name=\")[^\"]+(?=\")" "$DMO_FILE" 2>/dev/null || echo "")
+            # Use sed for better portability across systems
+            DECISION_NODE_NAME=$(sed -n "s/.*<decision id=\"$PARENT_FOLDER\" name=\"\([^\"]*\)\".*/\1/p" "$DMO_FILE" 2>/dev/null || echo "")
+            echo "Found decision node: $DECISION_NODE_NAME for folder: $PARENT_FOLDER"
         fi
         
         # Create the ID by concatenating decision node name and rule name
